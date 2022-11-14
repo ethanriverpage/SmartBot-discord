@@ -1,11 +1,15 @@
-from Token import lastfm_api_key, lastfm_api_secret, lastfm_username, lastfm_password_hash
+import os
+import pylast
 from LastfmAPIWrapper.LastFmWrapper import LastfmWrapper as Lastfm
-from Database.Database import Database
+from database import Database
 import datetime as DT
+from dotenv import load_dotenv
 
-
-
-
+load_dotenv
+LASTFM_API_KEY = os.getenv("LASTFM_API_KEY")
+LASTFM_API_SECRET = os.getenv("LASTFM_API_SECRET")
+LASTFM_USERNAME = os.getenv("LASTFM_USERNAME")
+LASTFM_PASSWORD = pylast.md5(os.getenv("LASTFM_PASSWORD"))
 
 class LastfmCommands:
     """The Lastfm Command Class
@@ -36,11 +40,11 @@ class LastfmCommands:
         }
 
         self.database = Database('LastFm')
-        self.lastfm = Lastfm(lastfm_api_key, lastfm_api_secret, lastfm_username, lastfm_password_hash)
+        self.lastfm = Lastfm(LASTFM_API_KEY, LASTFM_API_SECRET, LASTFM_USERNAME, LASTFM_PASSWORD)
 
 
 
-    def get_username(self, groupme_id):
+    def get_username(self, discord_id):
         """
         Fetches and returns a groupme user's registered lastfm username from the lastfm
         dataframe using their groupme id as the key.

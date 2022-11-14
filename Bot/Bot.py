@@ -1,12 +1,18 @@
 import time
+import discord
 from datetime import datetime
-from Token import groupyToken, groupy_id
-from groupy.client import Client
+from dotenv import load_dotenv
 from Bot.GroupmeCommandHandler import GroupmeCommandHandler
 
-client = Client.from_token(groupyToken)
-group = client.groups.get(groupy_id)
+load_dotenv()
+TOKEN = os.getenv('DISCORD_TOKEN')
+client = discord.Client()
 
+@client.event
+async def on_ready():
+    print(f'{client.user} has connected to Discord!')
+
+client.run(TOKEN)
 
 class Bot:
     """The Bot Class

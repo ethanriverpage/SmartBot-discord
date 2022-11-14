@@ -1,6 +1,6 @@
 from datetime import datetime
 from Bot.LastfmCommands import LastfmCommands
-from Database.Database import Database
+from database import Database
 from Token import bot_id, groupyToken, groupy_id
 from groupy.client import Client
 from groupy.api.attachments import Mentions, Image
