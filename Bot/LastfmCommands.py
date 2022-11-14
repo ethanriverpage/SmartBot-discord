@@ -5,7 +5,8 @@ from database import Database
 import datetime as DT
 from dotenv import load_dotenv
 
-load_dotenv
+load_dotenv()
+
 LASTFM_API_KEY = os.getenv("LASTFM_API_KEY")
 LASTFM_API_SECRET = os.getenv("LASTFM_API_SECRET")
 LASTFM_USERNAME = os.getenv("LASTFM_USERNAME")
