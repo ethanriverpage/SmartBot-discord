@@ -1,3 +1,7 @@
 /.env
 /users.db
+/bot_database/users.db
 /.vscode
+/.venv
+/.cache
+/.flask_session
